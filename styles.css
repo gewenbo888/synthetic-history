@@ -1,0 +1,88 @@
+:root {
+  --bg: #0a0814;
+  --surface: #14112a;
+  --surface-2: #1c1838;
+  --line: #2a2645;
+  --line-soft: #1d1832;
+  --text: #ece6f5;
+  --muted: #948fae;
+  --dim: #5d556c;
+  --primary: #a87aff;
+  --primary-glow: rgba(168, 122, 255, 0.30);
+  --past: #ffd06a;
+  --counter: #5fdcff;
+  --branch: #ff7bbf;
+  --display: 'Spectral', 'Noto Serif SC', serif;
+  --body: 'Karla', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --cjk-display: 'Noto Serif SC', serif;
+  --cjk-body: 'Noto Sans SC', sans-serif;
+}
+[data-theme="light"] { --bg: #f5f1e8; --surface: #ffffff; --surface-2: #ece5d2; --line: #d3c9b4; --line-soft: #e3dccd; --text: #1d1626; --muted: #5d5470; --dim: #9c93a8; --primary: #6b48d4; --primary-glow: rgba(107, 72, 212, 0.16); --past: #b8862a; --counter: #1f8aa8; --branch: #c14872; }
+* { box-sizing: border-box; } html, body { margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--body); -webkit-font-smoothing: antialiased; line-height: 1.55; overflow-x: hidden; }
+html[data-lang="en"] [lang="zh"] { display: none; } html[data-lang="zh"] [lang="en"] { display: none; }
+html[data-lang="zh"] body { font-family: var(--cjk-body); } html[data-lang="zh"] h1, html[data-lang="zh"] h2, html[data-lang="zh"] h3, html[data-lang="zh"] .display { font-family: var(--cjk-display); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; } a { color: inherit; text-decoration: none; } a:hover { color: var(--primary); }
+.nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-soft); }
+.nav-inner { display: flex; align-items: center; gap: 28px; padding: 14px 24px; max-width: 1180px; margin: 0 auto; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; }
+.brand-mark { width: 30px; height: 30px; border-radius: 4px; background: linear-gradient(135deg, var(--past), var(--primary), var(--branch)); position: relative; }
+.brand-mark::after { content: ''; position: absolute; inset: 4px; background: var(--bg); border-radius: 2px; }
+.brand-mark::before { content: ''; position: absolute; inset: 9px; background: linear-gradient(135deg, var(--past), var(--primary)); z-index: 1; clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%); }
+.brand-name { font-size: 19px; letter-spacing: 0.005em; font-style: italic; }
+.nav-links { display: flex; gap: 18px; margin-left: auto; font-size: 13px; color: var(--muted); }
+.nav-links a:hover { color: var(--text); } .nav-ctrl { display: flex; gap: 6px; }
+.btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; padding: 7px 12px; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; cursor: pointer; transition: all 0.15s; }
+.btn:hover { color: var(--text); border-color: var(--primary); }
+.hero { position: relative; padding: 100px 0 80px; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(50% 35% at 25% 35%, var(--primary-glow), transparent 70%); opacity: 0.55; filter: blur(50px); pointer-events: none; }
+[data-theme="light"] .hero::before { opacity: 0.22; }
+.hero-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+@media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+.eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 22px; }
+h1.display { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 5.5vw, 68px); line-height: 1.06; letter-spacing: -0.014em; margin: 0 0 22px; }
+h1.display em { font-style: italic; color: var(--primary); font-weight: 400; }
+.lede { font-size: 17px; color: var(--muted); max-width: 56ch; margin: 0 0 28px; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--line); padding: 5px 10px; border-radius: 100px; }
+.hero-viz { position: relative; aspect-ratio: 1 / 1; max-width: 540px; margin: 0 auto; }
+.hero-viz svg { width: 100%; height: 100%; }
+section { padding: 80px 0; border-top: 1px solid var(--line-soft); }
+.sec-head { margin-bottom: 44px; }
+.sec-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--primary); text-transform: uppercase; margin-bottom: 14px; }
+h2 { font-family: var(--display); font-weight: 500; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.12; letter-spacing: -0.012em; margin: 0 0 14px; max-width: 24ch; }
+h2 em { font-style: italic; color: var(--primary); font-weight: 400; }
+.sec-lede { color: var(--muted); max-width: 66ch; font-size: 16px; }
+.gen-box { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+.gen-box .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media (max-width: 880px) { .gen-box .controls { grid-template-columns: 1fr; } }
+.gen-box label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 6px; }
+.gen-box select { width: 100%; background: var(--surface-2); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 10px; font-family: var(--body); font-size: 14px; }
+.gen-box button.go { background: var(--primary); color: #08071a; border: 0; padding: 12px 26px; border-radius: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; cursor: pointer; font-weight: 700; }
+.gen-out { margin-top: 24px; padding: 26px 30px; background: var(--surface-2); border-left: 3px solid var(--primary); border-radius: 8px; line-height: 1.85; min-height: 100px; font-family: var(--body); font-size: 16px; }
+.gen-out:empty::before { content: 'Pick a divergence point. Generate an alternate timeline.'; color: var(--dim); font-style: italic; }
+html[data-lang="zh"] .gen-out:empty::before { content: '挑一个分叉点。生成一条替代时间线。'; }
+.gen-out h4 { font-family: var(--display); font-weight: 500; font-style: italic; font-size: 22px; margin: 0 0 10px; color: var(--primary); }
+.gen-out .lab { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 14px; margin-bottom: 4px; }
+.gen-out p { margin: 4px 0 12px; font-size: 16px; }
+.mirror-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+.prompt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 18px; }
+.prompt-btn { background: var(--surface-2); border: 1px solid var(--line); color: var(--text); text-align: left; padding: 14px 16px; border-radius: 10px; cursor: pointer; font-family: var(--body); font-size: 13px; transition: all 0.18s; }
+.prompt-btn:hover { border-color: var(--primary); transform: translateY(-1px); }
+.prompt-btn .pt-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--primary); text-transform: uppercase; display: block; margin-bottom: 6px; }
+.prompt-btn strong { font-family: var(--display); font-style: italic; font-size: 15px; font-weight: 500; }
+.mirror-input { display: flex; gap: 10px; margin-bottom: 16px; }
+.mirror-input textarea { flex: 1; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; font-family: var(--body); font-size: 14px; color: var(--text); resize: vertical; min-height: 70px; }
+.mirror-input textarea:focus { outline: none; border-color: var(--primary); }
+.mirror-input button { background: var(--primary); color: #08071a; border: 0; border-radius: 8px; padding: 0 26px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; cursor: pointer; font-weight: 700; }
+.mirror-out { background: var(--surface-2); border-left: 3px solid var(--primary); border-radius: 6px; padding: 22px 24px; font-size: 15px; line-height: 1.7; white-space: pre-wrap; min-height: 80px; color: var(--text); }
+.mirror-out:empty::before { content: 'Pick a probe above or describe a counterfactual.'; color: var(--dim); font-style: italic; }
+html[data-lang="zh"] .mirror-out:empty::before { content: '从上方选择一个探针，或描述一个反事实。'; }
+.rails { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--branch); border-radius: 12px; padding: 26px 28px; }
+.rails h3 { font-family: var(--display); margin: 0 0 14px; font-size: 22px; color: var(--branch); font-weight: 500; font-style: italic; }
+.rails ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 14.5px; }
+.rails li { margin-bottom: 10px; }
+footer { border-top: 1px solid var(--line-soft); padding: 40px 24px; color: var(--muted); font-size: 13px; text-align: center; }
+footer a { color: var(--muted); border-bottom: 1px dotted var(--line); }
+footer a:hover { color: var(--primary); }
